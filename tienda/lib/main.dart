@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_book/screens/home_screens.dart';
+
+import 'package:tienda/screens/home_screens.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,17 +12,17 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Tienda app',
-        home: RecipesBook());
+        home: CategoriShop());
   }
 }
 
-class RecipesBook extends StatelessWidget {
-  const RecipesBook({super.key});
+class CategoriShop extends StatelessWidget {
+  const CategoriShop({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black,
@@ -36,11 +37,14 @@ class RecipesBook extends StatelessWidget {
                 tabs: [
                   Tab(
                     icon: Icon(Icons.home),
-                    text: "Home",
+                    text: "Hogar",
                   ),
                   Tab(
-                    icon: Icon(Icons.shopping_cart),
-                  )
+                    icon: Icon(Icons.checkroom),
+                    text: "Moda",
+                  ),
+                  Tab(icon: Icon(Icons.tv),
+                  text: "Electrodomesticos",)
                 ]),
           ),
           body: const TabBarView(children: [HomeScreens()])),

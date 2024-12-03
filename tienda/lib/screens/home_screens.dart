@@ -7,13 +7,13 @@ class HomeScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Column(children: <Widget>[
-      _RecipesCard(context, "chaqueta", "urlPendiente", 20000),
-      _RecipesCard(context, "pantalon", "urlPendiente", 10000)
+      _ProductsCard(context, "chaqueta", "https://cdn.pixabay.com/photo/2016/03/20/13/48/zip-1268656_960_720.jpg", 20000),
+      _ProductsCard(context, "pantalon", "https://cdn.pixabay.com/photo/2016/03/20/13/48/zip-1268656_960_720.jpg", 10000)
     ]));
   }
 
   // ignore: non_constant_identifier_names
-  Widget _RecipesCard(
+  Widget _ProductsCard(
       BuildContext context, String nameProducto, String url, double price) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
