@@ -1,35 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:tienda/products.dart';
 
 class HomeScreens extends StatelessWidget {
-  const HomeScreens({super.key});
+  final String category;
+
+  const HomeScreens({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
+    final products = Products.getProductsPerCategory(category);
+
     return Scaffold(
-        body: Column(children: <Widget>[
-      _ProductsCard(context, "chaqueta", "https://cdn.pixabay.com/photo/2016/03/20/13/48/zip-1268656_960_720.jpg", 20000),
-      _ProductsCard(context, "pantalon", "https://cdn.pixabay.com/photo/2016/03/20/13/48/zip-1268656_960_720.jpg", 10000)
-    ]));
+        body: ListView.builder(
+          itemCount: products.length, itemBuilder: (BuildContext context, int index) { 
+            final product = products[index];
+            return _ProductsCard(context, product.name, product.imgUrl, product.price);
+           },
+        )
+    );
   }
 
   // ignore: non_constant_identifier_names
   Widget _ProductsCard(
-      BuildContext context, String nameProducto, String url, double price) {
+      BuildContext context, String name, String imagUrl, double price) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: 125,
         child: Card(
-          color: const Color.fromARGB(18, 213, 13, 163),
+          color: const Color.fromARGB(255, 36, 35, 35),
           child: Row(
             children: <Widget>[
-              Container(
+              SizedBox(
                 height: 125,
                 width: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network(url, fit: BoxFit.cover),
+                  child: Image.network(imagUrl, fit: BoxFit.cover),
                 ),
               ),
               const SizedBox(
@@ -40,9 +48,9 @@ class HomeScreens extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    nameProducto,
+                    name,
                     style:
-                        const TextStyle(fontSize: 20, fontFamily: "Quicksand"),
+                        const TextStyle(fontSize: 20, fontFamily: "Quicksand", color: Colors.white),
                   ),
                   const SizedBox(
                     height: 4,
@@ -50,11 +58,11 @@ class HomeScreens extends StatelessWidget {
                   Container(
                       height: 2,
                       width: 80,
-                      color: const Color.fromARGB(255, 19, 9, 162)),
+                      color: const Color.fromARGB(255, 229, 245, 6)),
                   Text(
                     "\$${price.toStringAsFixed(2)}",
                     style:
-                        const TextStyle(fontSize: 20, fontFamily: "Quicksand"),
+                        const TextStyle(fontSize: 20, fontFamily: "Quicksand", color: Color.fromARGB(255, 73, 170, 122)),
                   ),
                 ],
               )
