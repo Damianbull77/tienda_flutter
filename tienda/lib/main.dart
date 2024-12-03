@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'hola mundo',
+        title: 'Tienda app',
         home: RecipesBook());
   }
 }
@@ -21,12 +21,12 @@ class RecipesBook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 1,
+      length: 2,
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.black,
             title: const Text(
-              'Recipes App',
+              'Tienda App',
               style: TextStyle(color: Color.fromARGB(255, 235, 241, 55)),
             ),
             bottom: const TabBar(
@@ -37,6 +37,9 @@ class RecipesBook extends StatelessWidget {
                   Tab(
                     icon: Icon(Icons.home),
                     text: "Home",
+                  ),
+                  Tab(
+                    icon: Icon(Icons.shopping_cart),
                   )
                 ]),
           ),

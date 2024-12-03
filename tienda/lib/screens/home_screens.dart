@@ -6,12 +6,15 @@ class HomeScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-            children: <Widget>[_RecipesCard(context), _RecipesCard(context)]));
+        body: Column(children: <Widget>[
+      _RecipesCard(context, "chaqueta", "urlPendiente", 20000),
+      _RecipesCard(context, "pantalon", "urlPendiente", 10000)
+    ]));
   }
 
   // ignore: non_constant_identifier_names
-  Widget _RecipesCard(BuildContext context) {
+  Widget _RecipesCard(
+      BuildContext context, String nameProducto, String url, double price) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
@@ -26,7 +29,7 @@ class HomeScreens extends StatelessWidget {
                 width: 100,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image.network('https://via.placeholder.com/150'),
+                  child: Image.network(url, fit: BoxFit.cover),
                 ),
               ),
               const SizedBox(
@@ -36,9 +39,10 @@ class HomeScreens extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Text(
-                    "arroz con leche",
-                    style: TextStyle(fontSize: 20, fontFamily: "Quicksand"),
+                  Text(
+                    nameProducto,
+                    style:
+                        const TextStyle(fontSize: 20, fontFamily: "Quicksand"),
                   ),
                   const SizedBox(
                     height: 4,
@@ -47,9 +51,10 @@ class HomeScreens extends StatelessWidget {
                       height: 2,
                       width: 80,
                       color: const Color.fromARGB(255, 19, 9, 162)),
-                  const Text(
-                    "Damian ",
-                    style: TextStyle(fontSize: 20, fontFamily: "Quicksand"),
+                  Text(
+                    "\$${price.toStringAsFixed(2)}",
+                    style:
+                        const TextStyle(fontSize: 20, fontFamily: "Quicksand"),
                   ),
                 ],
               )
