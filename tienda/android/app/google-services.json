@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1049013354027",
+    "firebase_url": "https://flutter-app-4c133-default-rtdb.firebaseio.com",
+    "project_id": "flutter-app-4c133",
+    "storage_bucket": "flutter-app-4c133.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049013354027:android:ff0d81126dfdd9823db46e",
+        "android_client_info": {
+          "package_name": "com.miempresa.tiendaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDtvk_KHH8zMTI0SycOxpjm4OfXXtBabk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

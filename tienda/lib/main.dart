@@ -1,7 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
+import 'package:tienda/login_screen.dart';
 import 'package:tienda/screens/home_screens.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -10,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Tienda app',
+      title: 'Tienda',
       home: CategoriShop(),
     );
   }
@@ -30,6 +40,16 @@ class CategoriShop extends StatelessWidget {
             'Tienda App',
             style: TextStyle(color: Color.fromARGB(255, 235, 241, 55)),
           ),
+          actions: [
+            IconButton(
+                icon: const Icon(Icons.person, color: Colors.white),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                })
+          ],
           bottom: const TabBar(
             indicatorColor: Color.fromARGB(255, 232, 229, 229),
             labelColor: Color.fromARGB(255, 255, 255, 255),

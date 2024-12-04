@@ -12,12 +12,13 @@ class HomeScreens extends StatelessWidget {
 
     return Scaffold(
         body: ListView.builder(
-          itemCount: products.length, itemBuilder: (BuildContext context, int index) { 
-            final product = products[index];
-            return _ProductsCard(context, product.name, product.imgUrl, product.price);
-           },
-        )
-    );
+      itemCount: products.length,
+      itemBuilder: (BuildContext context, int index) {
+        final product = products[index];
+        return _ProductsCard(
+            context, product.name, product.imgUrl, product.price);
+      },
+    ));
   }
 
   // ignore: non_constant_identifier_names
@@ -49,8 +50,10 @@ class HomeScreens extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     name,
-                    style:
-                        const TextStyle(fontSize: 20, fontFamily: "Quicksand", color: Colors.white),
+                    style: const TextStyle(
+                        fontSize: 20,
+                        fontFamily: "Quicksand",
+                        color: Colors.white),
                   ),
                   const SizedBox(
                     height: 4,
@@ -61,8 +64,10 @@ class HomeScreens extends StatelessWidget {
                       color: const Color.fromARGB(255, 229, 245, 6)),
                   Text(
                     "\$${price.toStringAsFixed(2)}",
-                    style:
-                        const TextStyle(fontSize: 20, fontFamily: "Quicksand", color: Color.fromARGB(255, 73, 170, 122)),
+                    style: const TextStyle(
+                        fontSize: 20,
+                        fontFamily: "Quicksand",
+                        color: Color.fromARGB(255, 73, 170, 122)),
                   ),
                 ],
               )
